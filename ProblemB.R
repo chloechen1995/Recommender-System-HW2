@@ -68,12 +68,12 @@ predict.RecoS3 <- function (recoObj, testSet)
     j <- testSet[i, 1]
     k <- testSet[i, 2]
     #use the translator to translate to consecutive ID
-    originalSIndex <- match(j, result$translator[[3]])
-    originalDIndex <- match(k, result$translator[[4]])
+    originalSIndex <- match(j, recoObj$translator[[3]])
+    originalDIndex <- match(k, recoObj$translator[[4]])
     #use the same index to find corresponding shrinked ID
     #the result is still the same
-    j <- result$translator[[1]][originalSIndex]
-    k <- result$translator[[2]][originalDIndex]
+    j <- recoObj$translator[[1]][originalSIndex]
+    k <- recoObj$translator[[2]][originalDIndex]
     if (!is.na(j) && !is.na(k) && j <= nrow(p) && k <= nrow(q)) {
       tmp <- 0
       if (hasCovs) 
